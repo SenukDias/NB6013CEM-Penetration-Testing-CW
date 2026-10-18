@@ -1,0 +1,302 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Specification",
+    "description": "Generated from captured API requests for http://localhost:8081",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8081"
+    }
+  ],
+  "paths": {
+    "/api/auth/login": {
+      "post": {
+        "summary": "POST /api/auth/login",
+        "operationId": "post_api_auth_login",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "{\"user\":{\"id\":6,\"name\":\"User PT\",\"email\":\"admin@localhost.com\",\"role\":\"admin\"}}"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "{\"error\":{\"message\":\"Invalid email or password\"}}"
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "email",
+                  "password"
+                ]
+              },
+              "example": {
+                "email": "admin@test.local",
+                "password": "12345678"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/vehicles": {
+      "get": {
+        "summary": "GET /api/vehicles",
+        "operationId": "get_api_vehicles",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "{\"items\":[],\"page\":1,\"pageSize\":20}"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/invoices": {
+      "get": {
+        "summary": "GET /api/invoices",
+        "operationId": "get_api_invoices",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "{\"items\":[]}"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/services": {
+      "get": {
+        "summary": "GET /api/services",
+        "operationId": "get_api_services",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "{\"items\":[{\"name\":\"Annual service\",\"priceCents\":18900},{\"name\":\"Brake inspection\",\"priceCents\":7500},{\"name\":\"Diagnostics\",\"priceCents\":9900},{\"name\":\"Tyre service\",\"priceCents\":6500}]}"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/maintenance": {
+      "get": {
+        "summary": "GET /api/maintenance",
+        "operationId": "get_api_maintenance",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "{\"items\":[]}"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/customers": {
+      "get": {
+        "summary": "GET /api/customers",
+        "operationId": "get_api_customers",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "{\"items\":[{\"id\":1,\"name\":\"Maya Silva\",\"email\":\"maya@vehicle.test\",\"phone\":\"555-0111\",\"license_no\":\"L-10231\",\"role\":\"customer\"},{\"id\":2,\"name\":\"Leo Bennett\",\"email\":\"leo@vehicle.test\",\"phone\":\"555-0112\",\"license_no\":\"L-10232\",\"role\":\"customer\"},{\"id\":3,\"name\":\"Anika Rao\",\"email\":\"anika@vehicle.test\",\"phone\":\"555-0113\",\"license_no\":\"L-10233\",\"role\":\"customer\"},{\"id\":4,\"name\":\"Noah Brooks\",\"email\":\"noah@vehicle.test\",\"phone\":\"555-0140\",\"license_no\":\"L-10440\",\"role\":\"staff\"},{\"id\":5,\"name\":\"Iris Morgan\",\"email\":\"iris@vehicle.test\",\"phone\":\"555-0150\",\"license_no\":\"L-10550\",\"role\":\"admin\"},{\"id\":6,\"name\":\"User PT\",\"email\":\"admin@localhost.com\",\"phone\":\"0774356323\",\"license_no\":\"CBS 2234\",\"role\":\"admin\"}]}"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/staff/overview": {
+      "get": {
+        "summary": "GET /api/staff/overview",
+        "operationId": "get_api_staff_overview",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "{\"vehicles\":[{\"id\":1,\"owner_id\":1,\"registration\":\"CWP-4821\",\"make\":\"Toyota\",\"model\":\"Corolla\",\"year\":2020,\"notes\":\"Next inspection in June\",\"created_at\":\"2026-10-17 20:10:17\",\"owner_name\":\"Maya Silva\"},{\"id\":2,\"owner_id\":1,\"registration\":\"CWP-5510\",\"make\":\"Honda\",\"model\":\"Fit\",\"year\":2018,\"notes\":\"Winter tyres stored\",\"created_at\":\"2026-10-17 20:10:17\",\"owner_name\":\"Maya Silva\"},{\"id\":3,\"owner_id\":2,\"registration\":\"CWP-7740\",\"make\":\"Ford\",\"model\":\"Focus\",\"year\":2021,\"notes\":\"Fleet commuter\",\"created_at\":\"2026-10-17 20:10:17\",\"owner_name\":\"Leo Bennett\"},{\"id\":4,\"owner_id\":3,\"registration\":\"CWP-6032\",\"make\":\"Nissan\",\"model\":\"Leaf\",\"year\":2022,\"notes\":\"Battery health checked\",\"created_at\":\"2026-10-17 20:10:17\",\"owner_name\":\"Anika Rao\"},{\"id\":5,\"owner_id\":4,\"registration\":\"CWP-8855\",\"make\":\"Mazda\",\"model\":\"CX-5\",\"year\":2019,\"notes\":\"Service demonstrator\",\"created_at\":\"2026-10-17 20:10:17\",\"owner_name\":\"Noah Brooks\"}],\"bookings\":[{\"id\":2,\"vehicle_id\":3,\"service_type\":\"Brake inspection\",\"appointment\":\"2026-11-21 10:30:00\",\"status\":\"requested\",\"quoted_cents\":7500,\"created_at\":\"2026-10-17 20:10:17\",\"registration\":\"CWP-7740\"},{\"id\":1,\"vehicle_id\":1,\"service_type\":\"Annual service\",\"appointment\":\"2026-11-18 09:00:00\",\"status\":\"approved\",\"quoted_cents\":18900,\"created_at\":\"2026-10-17 20:10:17\",\"registration\":\"CWP-4821\"}]}"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/me": {
+      "patch": {
+        "summary": "PATCH /api/me",
+        "operationId": "patch_api_me",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "{\"id\":6,\"name\":\"User PT\",\"email\":\"admin@localhost.com\",\"role\":\"admin\",\"phone\":\"772345672\",\"license_no\":\"CBE 1234\"}"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/me/password": {
+      "post": {
+        "summary": "POST /api/me/password",
+        "operationId": "post_api_me_password",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "{\"ok\":true}"
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "current": {
+                    "type": "string"
+                  },
+                  "next": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "current",
+                  "next"
+                ]
+              },
+              "example": {
+                "current": "12345678",
+                "next": "12345678"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/vehicles/{VehiclesId}/owner": {
+      "patch": {
+        "summary": "PATCH /api/vehicles/{VehiclesId}/owner",
+        "operationId": "patch_api_vehicles_VehiclesId_owner",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "VehiclesId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID path parameter: VehiclesId",
+            "example": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "{\"ok\":true}"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
